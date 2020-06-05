@@ -1,9 +1,21 @@
-alert('Hello, dear man!');
-console.log('Если ты видишь это, значит ты в консоли!');
+let money = 30000;
+let income = 'фриланс';
+let addExpenses = 'Интернет, Комуналка, Еда, Развлечения, Ребенок, Учеба';
+let deposit = true;
+let mission = 300000;
+let period = 6;
+let budgetDay = money / 30;
 
-const money = '';
-const income = '';
-const addExpenses = '';
-const deposit = '';
-const mission = '';
-const period = '';
+console.log(typeof money);
+console.log(typeof income);
+console.log(typeof deposit);
+
+console.log(addExpenses.length);
+
+console.log('Период равен ' + period + ' месяцев');
+console.log('Цель заработать ' + mission + ' рублей');
+
+addExpenses = addExpenses.toLowerCase().split(' ');
+console.log(addExpenses);
+
+console.log(budgetDay);
