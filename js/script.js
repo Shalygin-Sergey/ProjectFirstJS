@@ -1,15 +1,27 @@
 'use strict';
-// Детерминированная функция зависит только от входных данных
-// Чистая функция: Детерминированная и без побочных эффектов
 
+let n = 0;
 
+// while (n < 5) {
+//     console.log(n);
+//     n++;
+// }
 
-function foo(a) {
-    const sum = a + Math.random();
-    return sum;
+// do {
+//     console.log(n);
+//     n++;
+// }
+// while (n < 5);
+
+for (let i = 0; i < 5; i++) {
+
+    if (i === 3) {
+        continue;
+    }
+
+    console.log(i);
 }
 
-console.log(foo(2));
 
 
 
@@ -32,16 +44,14 @@ console.log(foo(2));
 
 
 
-// function one(callback) {
-//     console.log('Делаем запрос на сервер');
-//     setTimeout(function () {
-//         console.log('Получаем данные от сервера');
-//         callback();
-//     }, 1000);
+// function changeTires(snowTires) {
+//     /* демонтаж, разборртовка, забортовка, 
+//     давление, балансировка, монтаж */
+//     snowTires--;
+//     console.log(snowTires);
+
+//     if (snowTires > 0) {
+//         changeTires(snowTires);
+//     }
 // }
-
-// function two() {
-//     console.log('Выводим на страницу');
-// }
-
-// one(two);
+// changeTires(4);
