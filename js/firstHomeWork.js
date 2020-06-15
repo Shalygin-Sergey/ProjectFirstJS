@@ -50,14 +50,11 @@ let appData = {
 
         for (const key in appData.expenses) {
             appData.expensesMonth += appData.expenses[key];
-            console.log(appData.expenses[key]);
-            console.log(typeof appData.expenses[key]);
         }
     },
     getBudget: function () {
-        appData.budgetDay = appData.budgetMonth / 30;
         appData.budgetMonth = appData.budget - appData.expensesMonth;
-
+        appData.budgetDay = Math.round(appData.budgetMonth / 30);
     },
     getTargetMonth: function () {
         return +Math.ceil(appData.mission / appData.budgetMonth);
@@ -76,7 +73,7 @@ let appData = {
 };
 appData.asking();
 
-
+appData.getExpensesMonth();
 
 appData.getBudget();
 
@@ -84,8 +81,8 @@ appData.getTargetMonth();
 
 appData.getStatusIncome();
 
-console.log('Сумма обязательных расходов: ' + appData.getExpensesMonth());
-console.log('Бюджет на месяц: ' + appData.getBudget());
+console.log('Сумма обязательных расходов: ' + appData.expensesMonth);
+console.log('Бюджет на месяц: ' + appData.budgetMonth);
 
 if (appData.getTargetMonth() === Infinity || appData.getTargetMonth() < 0) {
     console.log('Достижение цели не возможно!!!');
