@@ -105,17 +105,12 @@ let appData = {
         return appData.budgetMonth * appData.period;
     },
     getFromArr: function () {
-        let arr = appData.addExpenses.split(',');
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase();
-        }
-
+        let arr = appData.addExpenses.split(','); // создаем массив из простой строки
         appData.addExpenses = [];
         for (let i = 0; i < arr.length; i++) {
             appData.addExpenses.push(arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase());
-        }
-
-
+            // trim убирает пробелы, первая буква верхний регистр + начиная с 2ой буквы нижний регистр
+        } // пушим все это в массив addExpenses
     },
 };
 // вызов свойств объекта appData
