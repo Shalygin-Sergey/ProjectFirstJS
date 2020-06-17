@@ -1,57 +1,41 @@
 'use strict';
+// let str = '123выфвыфвы';
 
-let n = 0;
+// let patternAbc = /[а-яё]\D/gi;
 
-// while (n < 5) {
-//     console.log(n);
-//     n++;
+// let result = patternAbc.test(str);
+// console.log(result);
+
+// let test = 'какой то текст';
+// [...test.matchAll(patternAbc)]
+
+// const isText = function (str) {
+//     const pattern = /^[а-яё]\D/gi;
+//     return str.match(pattern);
 // }
 
-// do {
-//     console.log(n);
-//     n++;
+
+// let arr = ['kokko', 'mokko', 'sagitarius', 'petrovich', 'eduvanchik verhovsjoi'];
+// for (let i = 0; i < arr.length; i++) {
+//     arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase();
 // }
-// while (n < 5);
 
-for (let i = 0; i < 5; i++) {
+// let addEx = [];
+// for (let i = 0; i < arr.length; i++) {
+//     addEx.push(arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase());
+// }
 
-    if (i === 3) {
-        continue;
-    }
+// console.log(addEx.join(', '));
 
-    console.log(i);
+
+let arr = appData.addExpenses.split(',');
+for (let i = 0; i < arr.length; i++) {
+    arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase();
 }
 
+let addExpenses = [];
+for (let i = 0; i < arr.length; i++) {
+    addExpenses.push(arr[i].trim()[0].toUpperCase() + arr[i].trim().slice(1).toLowerCase());
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function changeTires(snowTires) {
-//     /* демонтаж, разборртовка, забортовка, 
-//     давление, балансировка, монтаж */
-//     snowTires--;
-//     console.log(snowTires);
-
-//     if (snowTires > 0) {
-//         changeTires(snowTires);
-//     }
-// }
-// changeTires(4);
+console.log(addEx.join(', '));
