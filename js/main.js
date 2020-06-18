@@ -38,11 +38,11 @@ console.log(targetMonthInput);
 
 let monthAmount = document.querySelector('.salary-amount');
 console.log(monthAmount);
-let incomeTitle = document.querySelector('.income-title');
+let incomeTitle = document.querySelectorAll('.income-title')[1];
 console.log(incomeTitle);
 let incomeAmount = document.querySelector('.income-amount');
 console.log(incomeAmount);
-let expensesTitle = document.querySelector('.expenses-title');
+let expensesTitle = document.querySelectorAll('.expenses-title')[1];
 console.log(expensesTitle);
 let expensesAmount = document.querySelector('.expenses-amount');
 console.log(expensesAmount);
