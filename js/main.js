@@ -71,7 +71,7 @@ let appData = {
         appData.getAddIncome();
         appData.getBudget();
         appData.inputRange();
-        appData.startDisabled();
+
         appData.showResult();
 
     },
@@ -205,6 +205,9 @@ let appData = {
         } // пушим все это в массив addExpenses
     },
 };
+appData.startDisabled();
+
+
 // навешиваем прослушиватьель событий на кнопку Рассчитать
 start.addEventListener('click', appData.start);
 // навешиваем прослушиватель событий на кнопку плюс
@@ -213,6 +216,8 @@ expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 // вешаем обработчик на перемещение бегунка
 periodSelect.addEventListener('click', appData.inputRange);
+
+
 
 
 
