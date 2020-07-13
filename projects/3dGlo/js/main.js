@@ -1,15 +1,12 @@
 'use strict';
-
+// Получаем наши дивы в переменные
 const one = document.querySelector('.one'),
     two = document.querySelector('.two'),
     three = document.querySelector('.three');
 
-
+// Создаем проверку какое время дня и ночи и выводим приветствие
 function hello() {
-
-
     let h = (new Date()).getHours();
-
 
     if (h > 23 || h < 7) {
         one.textContent = 'Привет, ночь на дворе :)';
@@ -20,12 +17,10 @@ function hello() {
     } else if (h > 18 && h < 24) {
         one.textContent = 'Привет! Уже вечер, кстати... домой не пора?';
     }
-
-
 }
-
 hello();
 
+// Создаем массив дней недели и вызываем ее после функции
 function getWeekDay(date) {
     let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
     return days[date.getDay()];
@@ -34,8 +29,10 @@ function getWeekDay(date) {
 let date = new Date();
 two.textContent = 'Сегодня: ' + getWeekDay(date);
 
+// Получаем текущее время с помощью toLocaleTimeString
 three.textContent = 'Текущее время: ' + date.toLocaleTimeString() + ' PM';
 
+// Создаем обратный таймер и считаем дни недели до нового года
 function countTimer(deadline) {
     let four = document.querySelector('.four');
 
