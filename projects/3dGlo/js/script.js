@@ -73,11 +73,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // Создаем функцию которая повторяется в btnMenu, closeBtn и в цикле
         const handlerMenu = () => {
-            if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-                menu.style.transform = `translate(0)`;
-            } else {
-                menu.style.transform = `translate(-100%)`;
-            }
+            menu.classList.toggle('active-menu');
         };
 
         // Навешиваем обработчик на клик по меню
