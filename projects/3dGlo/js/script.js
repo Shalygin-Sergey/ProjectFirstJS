@@ -62,4 +62,33 @@ window.addEventListener('DOMContentLoaded', function () {
     // countTimer('13 july 2020');
     setInterval(countTimer, 1000, '14 july 2020');
 
+
+    // Меню
+
+    const toggleMenu = () => {
+        const btnMenu = document.querySelector('.menu'),
+            menu = document.querySelector('menu'),
+            closeBtn = document.querySelector('.close-btn'),
+            menuItems = menu.querySelectorAll('ul>li');
+
+        // Создаем функцию которая повторяется в btnMenu, closeBtn и в цикле
+        const handlerMenu = () => {
+            if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
+                menu.style.transform = `translate(0)`;
+            } else {
+                menu.style.transform = `translate(-100%)`;
+            }
+        };
+
+        // Навешиваем обработчик на клик по меню
+        btnMenu.addEventListener('click', handlerMenu);
+        // Вешаем обработчик на крестик что бы закрывать
+        closeBtn.addEventListener('click', handlerMenu);
+
+        // Создаем цикл в котором по кол-ву наших пунктов в меню будет происходить закрытие
+        menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
+
+    }
+    toggleMenu();
+
 });
