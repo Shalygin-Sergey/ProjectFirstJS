@@ -87,4 +87,43 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     toggleMenu();
 
+    // POPUP
+
+    const togglePopUp = () => {
+        const popup = document.querySelector('.popup'),
+            popupBtn = document.querySelectorAll('.popup-btn'),
+            popUpClose = document.querySelector('.popup-close'),
+            popupContent = document.querySelector('.popup-content');
+        // Создали цикл показывать модальное окно
+        popupBtn.forEach((elem) => {
+            elem.addEventListener('click', () => {
+                popup.style.display = 'block';
+            });
+        });
+        // Закрытие на крестик модального окна
+        popUpClose.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+
+        let count = 0;
+        let flyInterval;
+
+        // Создаем анимацию модалки
+        const popAnimation = function () {
+
+            flyInterval = requestAnimationFrame(popAnimation);
+            count++;
+
+            if (count < 250) {
+                popupContent.style.top = count + 'px';
+            } else {
+                cancelAnimationFrame(popAnimation);
+            }
+
+
+        };
+        flyInterval = requestAnimationFrame(popAnimation);
+
+    }
+    togglePopUp();
 });
