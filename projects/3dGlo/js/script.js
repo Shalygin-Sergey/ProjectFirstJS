@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', function () {
         let timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
             timerSeconds = document.querySelector('#timer-seconds');
+        let time;
 
 
 
@@ -46,7 +47,8 @@ window.addEventListener('DOMContentLoaded', function () {
             timerSeconds.textContent = addZero(timer.seconds);
 
             if (timer.timeRemaining > 0) {
-                setTimeout(upDateClock, 1000);
+                time.setInterval(upDateClock, 1000);
+                clearInterval(time);
             } else if (timer.timeRemaining <= 0) {
                 timerHours.textContent = '00';
                 timerMinutes.textContent = '00';
@@ -84,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function () {
         // Создаем цикл в котором по кол-ву наших пунктов в меню будет происходить закрытие
         menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
 
-    }
+    };
     toggleMenu();
 
     // POPUP
@@ -94,19 +96,9 @@ window.addEventListener('DOMContentLoaded', function () {
             popupBtn = document.querySelectorAll('.popup-btn'),
             popUpClose = document.querySelector('.popup-close'),
             popupContent = document.querySelector('.popup-content');
-        // Создали цикл показывать модальное окно
-        popupBtn.forEach((elem) => {
-            elem.addEventListener('click', () => {
-                popup.style.display = 'block';
-            });
-        });
-        // Закрытие на крестик модального окна
-        popUpClose.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
 
-        let count = 0;
         let flyInterval;
+        let count = 0;
 
         // Создаем анимацию модалки
         const popAnimation = function () {
@@ -117,13 +109,28 @@ window.addEventListener('DOMContentLoaded', function () {
             if (count < 250) {
                 popupContent.style.top = count + 'px';
             } else {
-                cancelAnimationFrame(popAnimation);
+                cancelAnimationFrame(flyInterval);
             }
 
-
         };
-        flyInterval = requestAnimationFrame(popAnimation);
 
-    }
+        // Создали цикл показывать модальное окно
+        popupBtn.forEach((elem) => {
+            elem.addEventListener('click', () => {
+                popup.style.display = 'block';
+                if (screen.width > 768) {
+                    flyInterval = requestAnimationFrame(popAnimation);
+                }
+
+            });
+        });
+        // Закрытие на крестик модального окна
+        popUpClose.addEventListener('click', () => {
+            popup.style.display = 'none';
+            count = 0;
+        });
+
+    };
     togglePopUp();
+
 });
